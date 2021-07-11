@@ -1305,6 +1305,11 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
+"@openzeppelin/contracts@^3.2.0":
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-3.4.1.tgz#03c891fec7f93be0ae44ed74e57a122a38732ce7"
+  integrity sha512-cUriqMauq1ylzP2TxePNdPqkwI7Le3Annh4K9rrpvKfSBB/bdW+Iu1ihBaTIABTAAJ85LmKL5SSPPL9ry8d1gQ==
+
 "@protobufjs/utf8@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
@@ -1363,6 +1368,53 @@
     "@truffle/error" "^0.0.12"
     "@truffle/interface-adapter" "^0.4.21"
     web3 "1.3.5"
+
+"@tulilabs/auction-house@1.1.2", "@tulilabs/auction-house@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@tulilabs/auction-house/-/auction-house-1.1.2.tgz#8cdbb08cf202d5bbb245abe9310634ee437a646e"
+  integrity sha512-zyrheL0UWWTK6tGC6dePfLGQJypWUewCTmDf29ueszu7HQ72ZFvnHBcxlGWp6RwwHxFugbj4CW3BMJqIF7LJ/g==
+  dependencies:
+    "@openzeppelin/contracts" "^3.2.0"
+    "@tulilabs/core" "^1.1.0"
+    dotenv "^8.2.0"
+    fs-extra "^9.1.0"
+    minimist "^1.2.5"
+    solidity-coverage "^0.7.16"
+
+"@tulilabs/core@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@tulilabs/core/-/core-1.1.0.tgz#3dd5ccd18c6b9ba0800dbea28d0364693c51f75e"
+  integrity sha512-ivLnrNVDXdAhxzzKNRc4qdSg8sgSv+pE9qCndwdeHOdi3X77tHRhDQG29RRlmMAYjMMyioWXrwcFV2D5qOpUOQ==
+  dependencies:
+    ethers "^5.0.19"
+
+"@tulilabs/media-metadata-schemas@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@tulilabs/media-metadata-schemas/-/media-metadata-schemas-0.1.0.tgz#704043ed05c4614c0d844a975663d1568d7f83e8"
+  integrity sha512-csaXh21KpCoov6Tid5nbsF7/YlSRYkRVohl5issYPdjQfGnWbAMVoPpycItpNJSdj5pHkdECYRKC3M4nt7S/EQ==
+  dependencies:
+    "@types/jsonschema" "^1.1.1"
+    jsonschema "^1.4.0"
+    ts-node "^9.1.1"
+    tslib "^2.0.3"
+    typescript "^4.1.3"
+
+"@tulilabs/tdk@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@tulilabs/tdk/-/tdk-1.1.2.tgz#c21c3b5c5e78b8202425db7cc449200e04f16f33"
+  integrity sha512-NT66QJK+ZusPQEd5wXF5nELlML0xDpb/dkDkJ+24XWSGJO+63WcXxl3SMTuPR4BQgXVoaA65yvZz0GcStxfwhQ==
+  dependencies:
+    "@tulilabs/auction-house" "^1.1.2"
+    "@tulilabs/core" "^1.1.0"
+    "@tulilabs/media-metadata-schemas" "^0.1.0"
+    axios "^0.21.1"
+    eth-sig-util "^3.0.0"
+    ethereumjs-util "^7.0.7"
+    ethers "^5.0.19"
+    sjcl "^1.0.8"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    ts-node "^9.1.1"
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.0", "@types/babel__core@^7.1.7":
   version "7.1.12"
@@ -1581,68 +1633,6 @@
   integrity sha512-f+fD/fQAo3BCbCDlrUpznF1A5Zp9rB0noS5vnoormHSIPFKL0Z2DcUJ3Gxp5ytH4uLRNxy7AwYUC9exZzqGMAw==
   dependencies:
     "@types/yargs-parser" "*"
-
-"@tulilabs/auction-house@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@tulilabs/auction-house/-/auction-house-1.1.0.tgz#74b1850ee373a649baea221ae266469a4821a5c6"
-  integrity sha512-pFv4ei1+JKJTrVzMwaiZ174GAD+PMhHRTtR5NPAchVJmXfA+tAUJrS6YGTH/fWgj4IDJ4TZo2ADIq/5qHel+aw==
-  dependencies:
-    "@tulilabs/core" "^1.0.3"
-    dotenv "^8.2.0"
-    fs-extra "^9.1.0"
-    minimist "^1.2.5"
-    solidity-coverage "^0.7.16"
-
-"@tulilabs/auction-house@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@tulilabs/auction-house/-/auction-house-1.1.1.tgz#e4fe640ea4a73436a550fa341f4b279d71f285d3"
-  integrity sha512-N+KJJpwbq8QSFwCpvavflIx5tISBhsswO3kBJY4h1EB2SGuU4pOxcbbbB+X8Dv45kb3b1cOy/dDfo1eWiVbiMw==
-  dependencies:
-    "@tulilabs/core" "^1.0.3"
-    dotenv "^8.2.0"
-    fs-extra "^9.1.0"
-    minimist "^1.2.5"
-    solidity-coverage "^0.7.16"
-
-"@tulilabs/core@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@tulilabs/core/-/core-1.0.1.tgz#8335acbd1485962896cb28a7dbd3588672fc5626"
-  integrity sha512-cW4f3gY1O0iiWA6UhzljkSQXPvCS0aKK2V0j2a3LRzbJ6Px2OpFjdB5V0pN9jRMOQyKd+kH/sewhZ9lkcTl6SA==
-
-"@tulilabs/core@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@tulilabs/core/-/core-1.0.3.tgz#a4ca994510a0fa4e3de82639c682fb1124bef35b"
-  integrity sha512-yLCbZMmjf59R2/BtUQiIxytHYKZRtGFhHLGwnN26FdAW8kN9lTmuZ41ijMujA14z0RT+xHpTa4L6DvfACc+Aag==
-  dependencies:
-    ethers "^5.0.19"
-
-"@tulilabs/media-metadata-schemas@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@tulilabs/media-metadata-schemas/-/media-metadata-schemas-0.1.2.tgz#b6f3532e7bca95197fa8a7ca136ad70dbdce1d2d"
-  integrity sha512-QcvPNb4RkdU9xKfOxnmKRKKVI4Z5oammiz2wYHmqzOvkIgHvm7tjV/MQcTelaRJfjksYx8k6bqsmbSbKIMUJTQ==
-  dependencies:
-    "@types/jsonschema" "^1.1.1"
-    jsonschema "^1.4.0"
-    ts-node "^9.1.1"
-    tslib "^2.0.3"
-    typescript "^4.1.3"
-
-"@tulilabs/zdk@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@tulilabs/zdk/-/zdk-1.2.1.tgz#4891963da7d0a4a8fd748c14fc6472e32f852003"
-  integrity sha512-1/tbxccz85Itpt9lETTTtFLB0mC4FbWl5AqLKDfznfdqzcaCM//L2hn1YLBcRiVx6H9LmmN3FzidrCA8ucE1Yw==
-  dependencies:
-    "@tulilabs/auction-house" "^1.1.1"
-    "@tulilabs/core" "^1.0.3"
-    "@tulilabs/media-metadata-schemas" "^0.1.2"
-    axios "^0.21.1"
-    eth-sig-util "^3.0.0"
-    ethereumjs-util "^7.0.7"
-    ethers "^5.0.19"
-    sjcl "^1.0.8"
-    tiny-invariant "^1.1.0"
-    tiny-warning "^1.0.3"
-    ts-node "^9.1.1"
 
 JSONStream@1.3.2:
   version "1.3.2"

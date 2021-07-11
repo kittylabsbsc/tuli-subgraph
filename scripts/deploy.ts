@@ -12,7 +12,7 @@ async function start() {
     throw new Error('--chainId chain ID is required')
   }
   const path = `${process.cwd()}/.env${
-    args.chainId === 56 ? '.prod' : args.chainId === 97 ? '.dev' : '.local'
+    args.chainId === 1 ? '.prod' : args.chainId === 97 ? '.dev' : '.local'
   }`
 
   await require('dotenv').config({ path })

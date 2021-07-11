@@ -9,12 +9,12 @@
     "prepare:bsc": "mustache config/56.json subgraph.template.yaml > subgraph.yaml",
     "prepare:polygon": "mustache config/137.json subgraph.template.yaml > subgraph.yaml",
     "prepare:local": "mustache config/50.json subgraph.template.yaml > subgraph.yaml",
-    "create": "graph create bitbd83/tuli-subgraph-mainnet --node https://api.thegraph.com/deploy/",
-    "create-local": "graph create bitbd83/tuli-subgraph-mainnet --node http://127.0.0.1:8020",
+    "create": "graph create bitbd83/tulisubmainnet --node https://api.thegraph.com/deploy/",
+    "create-local": "graph create bitbd83/tulisubmainnet --node http://127.0.0.1:8020",
     "test": "jest",
     "codegen": "graph codegen --output-dir types",
     "build": "graph build",
-    "deploy": "graph deploy bitbd83/tuli-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy": "graph deploy bitbd83/tulisubpolygon --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "deploy-local": "graph deploy sporkspatula/tuli-v1-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
     "runAuction": "ts-node scripts/auctionHouse.ts"
   },
@@ -43,7 +43,7 @@
     "typescript": "^4.1.2"
   },
   "dependencies": {
-    "@tulilabs/auction-house": "1.1.0"
+    "@tulilabs/auction-house": "1.1.2"
   },
   "jest": {
     "preset": "ts-jest"

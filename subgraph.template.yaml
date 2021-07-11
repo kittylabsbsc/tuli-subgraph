@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 description: Tuli Media
-repository: https://github.com/ourtuli/tuli-v1-subgraph
+repository: https://github.com/kittylabsbsc/tuli-subgraph
 schema:
   file: ./schema.graphql
 dataSources:
