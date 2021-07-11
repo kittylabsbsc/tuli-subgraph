@@ -1,0 +1,10 @@
+{
+  "network": "bsc",
+  "marketAddress": "73cf40A06e8D2E39622E49B98dA54D2Bb968B359",
+  "marketStartBlock": 9015079,
+  "mediaAddress": "5083E377053dfC9bf0f898A15E903cB46094fdFA",
+  "mediaStartBlock": 9015085,
+  "wethAddress": "bb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+  "auctionHouseAddress": "fe1ca020f1c004A96734Ba9439bBA867DB8737b7",
+  "auctionHouseStartBlock": 9061527
+}

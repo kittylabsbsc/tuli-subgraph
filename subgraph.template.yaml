@@ -1,0 +1,113 @@
+specVersion: 0.0.2
+description: Tuli Media
+repository: https://github.com/ourtuli/tuli-v1-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Media
+    network: {{network}}
+    source:
+      address: {{mediaAddress}}
+      abi: Media
+      startBlock: {{mediaStartBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Media
+      abis:
+        - name: Media
+          file: ./abis/Media.json
+        - name: Market
+          file: ./abis/Market.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: TokenURIUpdated(indexed uint256,address,string)
+          handler: handleTokenURIUpdated
+        - event: TokenMetadataURIUpdated(indexed uint256,address,string)
+          handler: handleTokenMetadataURIUpdated
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+      file: ./src/media.ts
+  - kind: ethereum/contract
+    name: Market
+    network: {{network}}
+    source:
+      address: {{marketAddress}}
+      abi: Market
+      startBlock: {{marketStartBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Ask
+        - Bid
+      abis:
+        - name: Market
+          file: ./abis/Market.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: ERC20SymbolBytes
+          file: ./abis/ERC20SymbolBytes.json
+        - name: ERC20NameBytes
+          file: ./abis/ERC20NameBytes.json
+      eventHandlers:
+        - event: BidShareUpdated(indexed uint256,((uint256),(uint256),(uint256)))
+          handler: handleBidShareUpdated
+        - event: AskCreated(indexed uint256,(uint256,address))
+          handler: handleAskCreated
+        - event: AskRemoved(indexed uint256,(uint256,address))
+          handler: handleAskRemoved
+        - event: BidCreated(indexed uint256,(uint256,address,address,address,(uint256)))
+          handler: handleBidCreated
+        - event: BidRemoved(indexed uint256,(uint256,address,address,address,(uint256)))
+          handler: handleBidRemoved
+        - event: BidFinalized(indexed uint256,(uint256,address,address,address,(uint256)))
+          handler: handleBidFinalized
+      file: ./src/market.ts
+  - kind: ethereum/contract
+    name: AuctionHouse
+    network: {{ network }}
+    source:
+      address: {{auctionHouseAddress}}
+      abi: AuctionHouse
+      startBlock: {{auctionHouseStartBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ReserveAuction
+        - ReserveAuctionBid
+        - InactiveReserveAuctionBid
+      abis:
+        - name: AuctionHouse
+          file: ./abis/AuctionHouse.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: ERC20SymbolBytes
+          file: ./abis/ERC20SymbolBytes.json
+        - name: ERC20NameBytes
+          file: ./abis/ERC20NameBytes.json
+      eventHandlers:
+        - event: AuctionCreated(indexed uint256,indexed uint256,indexed address,uint256,uint256,address,address,uint8,address)
+          handler: handleReserveAuctionCreated
+        - event: AuctionApprovalUpdated(indexed uint256,indexed uint256,indexed address,bool)
+          handler: handleReserveAuctionApprovalUpdate
+        - event: AuctionReservePriceUpdated(indexed uint256,indexed uint256,indexed address,uint256)
+          handler: handleReserveAuctionReservePriceUpdate
+        - event: AuctionBid(indexed uint256,indexed uint256,indexed address,address,uint256,bool,bool)
+          handler: handleReserveAuctionBid
+        - event: AuctionDurationExtended(indexed uint256,indexed uint256,indexed address,uint256)
+          handler: handleReserveAuctionDurationExtended
+        - event: AuctionEnded(indexed uint256,indexed uint256,indexed address,address,address,address,uint256,uint256,address)
+          handler: handleReserveAuctionEnded
+        - event: AuctionCanceled(indexed uint256,indexed uint256,indexed address,address)
+          handler: handleReserveAuctionCanceled
+      file: ./src/auctionHouse.ts
