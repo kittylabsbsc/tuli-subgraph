@@ -15,7 +15,7 @@
     "test": "jest",
     "codegen": "graph codegen --output-dir types",
     "build": "graph build",
-    "deploy": "graph deploy bitbd83/tulisubbsc --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy": "graph deploy bitbd83/tulisubpolygon --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "runAuction": "ts-node scripts/auctionHouse.ts"
   },
   "devDependencies": {
@@ -24,7 +24,7 @@
     "@graphprotocol/graph-cli": "^0.18.0",
     "@graphprotocol/graph-ts": "^0.18.0",
     "@tulilabs/core": "^1.1.2",
-    "@tulilabs/tdk": "^1.1.3",
+    "@tulilabs/tdk": "^1.1.4",
     "@types/jest": "^26.0.15",
     "@types/sjcl": "^1.0.29",
     "axios": "^0.21.0",
